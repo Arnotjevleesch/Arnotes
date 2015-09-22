@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Arnotes</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="validate_button">Valider</string>
+
+</resources>
