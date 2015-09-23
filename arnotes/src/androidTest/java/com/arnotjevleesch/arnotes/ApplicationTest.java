@@ -14,7 +14,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     }
 
     public void testName() throws Exception {
-        Assert.assertTrue(true);
+        Assert.assertTrue(false);
 
     }
 /*
