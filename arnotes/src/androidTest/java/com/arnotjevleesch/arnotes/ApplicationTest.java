@@ -2,6 +2,7 @@ package com.arnotjevleesch.arnotes;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
+import junit.framework.Assert;
 
 
 /**
@@ -11,12 +12,12 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public ApplicationTest() {
         super(Application.class);
     }
-/*
+
     public void testName() throws Exception {
         Assert.assertTrue(true);
 
     }
-
+/*
     public void testQuickSortWithIndices() throws Exception {
 
         BigDecimal[] t = new BigDecimal[] {
