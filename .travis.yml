@@ -43,4 +43,5 @@ before_script:
 
 script:
   - android list target
+  - ./gradlew check
   - ./gradlew connectedAndroidTest
