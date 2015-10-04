@@ -1,5 +1,6 @@
 package com.arnotjevleesch.arnotes.matchStrategy;
 
+import android.content.Context;
 import com.arnotjevleesch.arnotes.exception.UserException;
 import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
 import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
@@ -12,8 +13,9 @@ import java.util.Random;
 
 public class QuicksortMatchStrategy extends MatchSoundAndGraphical implements IMatchStrategy {
 
-	public QuicksortMatchStrategy(SoundNoteSet soundNotes, List<GraphicalNote> graphicalNotes) throws UserException {
-		super(soundNotes,graphicalNotes);
+	public QuicksortMatchStrategy(Context applicationContext, List<GraphicalNote> graphicalNotes,
+								  SoundNoteSet soundNotes) throws UserException {
+		super(applicationContext, soundNotes,graphicalNotes);
 	}
 	
 	@Override
@@ -58,8 +60,7 @@ public class QuicksortMatchStrategy extends MatchSoundAndGraphical implements IM
 
 	private static int choixPivot(int premier, int dernier) {
 		Random rand = new Random();
-		int nombreAleatoire = rand.nextInt(dernier - premier + 1) + premier;
-		return nombreAleatoire;
+		return rand.nextInt(dernier - premier + 1) + premier;
 	}
 
 	private static void echanger(BigDecimal[] t, int a, int b, int[] indices) {

@@ -42,6 +42,6 @@ public class QuicksortMatchStrategyTest extends GWTCommonMatchStrategy{
 
     @Override
     public void whenChooseMatchStrategy() throws UserException {
-        matchStrategy = new QuicksortMatchStrategy(soundNotes,graphicalNotes);
+        matchStrategy = new QuicksortMatchStrategy(null, graphicalNotes, soundNotes);
     }
 }

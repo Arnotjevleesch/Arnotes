@@ -43,6 +43,6 @@ public class CompareMatchStrategyTest extends GWTCommonMatchStrategy{
 
     @Override
     public void whenChooseMatchStrategy() throws UserException {
-        matchStrategy = new CompareMatchStrategy(soundNotes,graphicalNotes);
+        matchStrategy = new CompareMatchStrategy(null, soundNotes,graphicalNotes);
     }
 }

@@ -1,5 +1,7 @@
 package com.arnotjevleesch.arnotes.matchStrategy;
 
+import android.content.Context;
+import com.arnotjevleesch.arnotes.R;
 import com.arnotjevleesch.arnotes.exception.UserException;
 import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
 import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
@@ -13,8 +15,10 @@ public class MatchSoundAndGraphical {
 
 	private SoundNoteSet soundNotes;
 	private List<GraphicalNote> graphicalNotes;
+	private Context context;
 
-	public MatchSoundAndGraphical(SoundNoteSet soundNotes, List<GraphicalNote> graphicalNotes) throws UserException {
+	public MatchSoundAndGraphical(Context applicationContext, SoundNoteSet soundNotes, List<GraphicalNote> graphicalNotes) throws UserException {
+		this.context = applicationContext;
 		this.soundNotes = soundNotes;
 		this.graphicalNotes = graphicalNotes;
 
@@ -34,7 +38,7 @@ public class MatchSoundAndGraphical {
 
     public boolean control() throws UserException{
 		if(soundNotes.size() != graphicalNotes.size()) {
-			throw new UserException("Touch the number of sound you hear.");
+			throw new UserException((context!=null)?context.getString(R.string.notes_number_message):"");
 		}
 		return true;
 	}

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
+import com.arnotjevleesch.arnotes.exception.TechnicalException;
 import com.arnotjevleesch.arnotes.exception.UserException;
 import com.arnotjevleesch.arnotes.matchStrategy.CompareMatchStrategy;
 import com.arnotjevleesch.arnotes.matchStrategy.IMatchStrategy;
@@ -40,9 +41,14 @@ public class MainActivity extends Activity {
                 CanvasView canvasView = (CanvasView)findViewById(R.id.canvas);
                 canvasView.clear();
 
-                soundStrategy = new KMidiSoundStrategy(getApplicationContext());
-                soundStrategy.begin();
-                soundNotes = soundStrategy.getSoundNoteList(Integer.valueOf(spinner.getSelectedItem().toString()));
+                try {
+                    soundStrategy = new KMidiSoundStrategy(getApplicationContext());
+                    soundStrategy.begin();
+                    soundNotes = soundStrategy.getSoundNoteListAndPlay(Integer.valueOf(spinner.getSelectedItem().toString()));
+                } catch(TechnicalException e){
+                    Toast.makeText(getApplicationContext(), R.string.technical_problem_message, Toast.LENGTH_SHORT).show();
+                    Log.i("app", e.getMessage());
+                }
             }
         });
 
@@ -57,12 +63,12 @@ public class MainActivity extends Activity {
                 }
 
                 try {
-                    IMatchStrategy matchStrategy = new CompareMatchStrategy(soundNotes, graphicalNotes);
+                    IMatchStrategy matchStrategy = new CompareMatchStrategy(getApplicationContext(), soundNotes, graphicalNotes);
 
                     if(matchStrategy.isMatching()) {
-                        Toast.makeText(getApplicationContext(), "Match !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.match_message, Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Not Match !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.not_match_message, Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (UserException e) {

@@ -6,7 +6,7 @@ import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 public class JFugueSoundStrategy implements ISoundStrategy {
 
 	@Override
-	public SoundNoteSet getSoundNoteList(int numberOfSound) {
+	public SoundNoteSet getSoundNoteListAndPlay(int numberOfSound) {
 		return null;
 	}
 
