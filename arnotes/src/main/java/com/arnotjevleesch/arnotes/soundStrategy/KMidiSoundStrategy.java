@@ -5,12 +5,13 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Environment;
 import com.arnotjevleesch.arnotes.pojo.SoundNote;
+import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 import jp.kshoji.javax.sound.midi.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.Random;
 
 
 public class KMidiSoundStrategy implements ISoundStrategy {
@@ -19,14 +20,14 @@ public class KMidiSoundStrategy implements ISoundStrategy {
     private static final int VELOCITY = 64;
     private Context context;
     int sm = -1;
-    List<SoundNote> notes = new ArrayList<SoundNote>();
+    SoundNoteSet notes = new SoundNoteSet();
 
     public KMidiSoundStrategy(Context context){
         this.context = context;
     }
 
 	@Override
-	public List<SoundNote> getSoundNoteList(int numberOfSound) {
+	public SoundNoteSet getSoundNoteList(int numberOfSound) {
 
 		try {
 
@@ -39,11 +40,7 @@ public class KMidiSoundStrategy implements ISoundStrategy {
                 int randomHigh = r.nextInt(90 - 50) + 50;
 
                 SoundNote sn = addNoteToTrack(t, randomHigh, i);
-
-                // pas de doublons
-                if(!notes.contains(sn)) {
-                    notes.add(sn);
-                }
+                notes.add(sn);
             }
 
 			MidiSystem.write(myseq, 0, new File(Environment.getExternalStorageDirectory() + "/myseq.mid"));

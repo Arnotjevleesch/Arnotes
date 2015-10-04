@@ -13,7 +13,7 @@ import com.arnotjevleesch.arnotes.exception.UserException;
 import com.arnotjevleesch.arnotes.matchStrategy.CompareMatchStrategy;
 import com.arnotjevleesch.arnotes.matchStrategy.IMatchStrategy;
 import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
-import com.arnotjevleesch.arnotes.pojo.SoundNote;
+import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 import com.arnotjevleesch.arnotes.soundStrategy.ISoundStrategy;
 import com.arnotjevleesch.arnotes.soundStrategy.KMidiSoundStrategy;
 
@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
 
     private static final boolean DEBUG = true;
     private ISoundStrategy soundStrategy = null;
-    private List<SoundNote> soundNotes;
+    private SoundNoteSet soundNotes;
     private Spinner spinner = null;
 
     @Override

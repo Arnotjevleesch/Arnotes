@@ -1,13 +1,11 @@
 package com.arnotjevleesch.arnotes.soundStrategy;
 
-import com.arnotjevleesch.arnotes.pojo.SoundNote;
-
-import java.util.List;
+import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 
 
 public interface ISoundStrategy {
 
-	List<SoundNote> getSoundNoteList(int numberOfSound);
+	SoundNoteSet getSoundNoteList(int numberOfSound);
 
 	boolean begin();
 

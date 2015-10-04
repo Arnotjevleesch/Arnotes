@@ -2,7 +2,7 @@ package com.arnotjevleesch.arnotes.matchStrategy;
 
 import com.arnotjevleesch.arnotes.exception.UserException;
 import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
-import com.arnotjevleesch.arnotes.pojo.SoundNote;
+import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,10 +11,10 @@ import java.util.List;
 
 public class MatchSoundAndGraphical {
 
-	private List<SoundNote> soundNotes;
+	private SoundNoteSet soundNotes;
 	private List<GraphicalNote> graphicalNotes;
 
-	public MatchSoundAndGraphical(List<SoundNote> soundNotes, List<GraphicalNote> graphicalNotes) throws UserException {
+	public MatchSoundAndGraphical(SoundNoteSet soundNotes, List<GraphicalNote> graphicalNotes) throws UserException {
 		this.soundNotes = soundNotes;
 		this.graphicalNotes = graphicalNotes;
 
@@ -43,7 +43,7 @@ public class MatchSoundAndGraphical {
 		return graphicalNotes;
 	}
 	
-	public List<SoundNote> getSoundNotes() {
+	public SoundNoteSet getSoundNotes() {
 		return soundNotes;
 	}
 }

@@ -2,7 +2,7 @@ package com.arnotjevleesch.arnotes.matchStrategy;
 
 import com.arnotjevleesch.arnotes.exception.UserException;
 import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
-import com.arnotjevleesch.arnotes.pojo.SoundNote;
+import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -12,7 +12,7 @@ import java.util.List;
 public class CompareMatchStrategy extends MatchSoundAndGraphical implements IMatchStrategy {
 
 
-	public CompareMatchStrategy(List<SoundNote> soundNotes, List<GraphicalNote> graphicalNotes) throws UserException {
+	public CompareMatchStrategy(SoundNoteSet soundNotes, List<GraphicalNote> graphicalNotes) throws UserException {
 		super(soundNotes,graphicalNotes);
 	}
 
@@ -33,7 +33,7 @@ public class CompareMatchStrategy extends MatchSoundAndGraphical implements IMat
 		Arrays.sort(soundIndexes, new Comparator<Integer>() {
 		    @Override 
 		    public int compare(final Integer o1, final Integer o2) {
-		        return getSoundNotes().get(o1).getHigh().compareTo(getSoundNotes().get(o2).getHigh());
+				return getSoundNotes().get(o1).getHigh().compareTo(getSoundNotes().get(o2).getHigh());
 		    }
 		});
 		

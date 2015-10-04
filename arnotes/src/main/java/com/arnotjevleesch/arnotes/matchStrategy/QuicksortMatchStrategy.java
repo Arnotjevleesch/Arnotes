@@ -1,8 +1,8 @@
 package com.arnotjevleesch.arnotes.matchStrategy;
 
-import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
-import com.arnotjevleesch.arnotes.pojo.SoundNote;
 import com.arnotjevleesch.arnotes.exception.UserException;
+import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
+import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class QuicksortMatchStrategy extends MatchSoundAndGraphical implements IMatchStrategy {
 
-	public QuicksortMatchStrategy(List<SoundNote> soundNotes, List<GraphicalNote> graphicalNotes) throws UserException {
+	public QuicksortMatchStrategy(SoundNoteSet soundNotes, List<GraphicalNote> graphicalNotes) throws UserException {
 		super(soundNotes,graphicalNotes);
 	}
 	

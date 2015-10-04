@@ -1,14 +1,12 @@
 package com.arnotjevleesch.arnotes.soundStrategy;
 
-import com.arnotjevleesch.arnotes.pojo.SoundNote;
-
-import java.util.List;
+import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 
 
 public class JFugueSoundStrategy implements ISoundStrategy {
 
 	@Override
-	public List<SoundNote> getSoundNoteList(int numberOfSound) {
+	public SoundNoteSet getSoundNoteList(int numberOfSound) {
 		return null;
 	}
 
