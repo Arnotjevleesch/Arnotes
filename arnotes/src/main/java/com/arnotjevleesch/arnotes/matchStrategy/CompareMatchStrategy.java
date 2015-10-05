@@ -47,7 +47,7 @@ public class CompareMatchStrategy extends MatchSoundAndGraphical implements IMat
 		});
 		
 		for(int i=0;i<getSoundNotes().size();i++){
-			if(soundIndexes[i].equals(graphicalIndexes[i])){
+			if(!soundIndexes[i].equals(graphicalIndexes[i])){
 				return false;
 			}
 		}
