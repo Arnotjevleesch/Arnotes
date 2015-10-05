@@ -1,43 +1,31 @@
 package com.arnotjevleesch.arnotes.matchStrategy;
 
 import com.arnotjevleesch.arnotes.exception.UserException;
-import org.junit.Assert;
 import org.junit.Test;
 
 public class QuicksortMatchStrategyTest extends GWTCommonMatchStrategy{
+
     @Test
-    public void match() {
+    public void match() throws UserException {
         givenSoundNotesList1();
         givenGraphicalNotesList1();
-        try {
-            whenChooseMatchStrategy();
-        } catch (UserException e) {
-            Assert.fail();
-        }
+        whenChooseMatchStrategy();
         thenMatch();
     }
 
     @Test
-    public void notMatch(){
+    public void notMatch() throws UserException {
         givenSoundNotesList1();
         givenGraphicalNotesList2();
-        try {
-            whenChooseMatchStrategy();
-        } catch (UserException e) {
-            Assert.fail();
-        }
+        whenChooseMatchStrategy();
         thenNotMatch();
     }
 
-    @Test
-    public void badNumberOfGraphical(){
+    @Test(expected=UserException.class)
+    public void badNumberOfGraphical() throws UserException {
         givenSoundNotesList2();
         givenGraphicalNotesList2();
-        try {
-            whenChooseMatchStrategy();
-        } catch (UserException e) {
-            Assert.assertTrue(true);
-        }
+        whenChooseMatchStrategy();
     }
 
     @Override
