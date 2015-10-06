@@ -6,9 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.*;
 import com.arnotjevleesch.arnotes.exception.TechnicalException;
 import com.arnotjevleesch.arnotes.exception.UserException;
 import com.arnotjevleesch.arnotes.matchStrategy.CompareMatchStrategy;
@@ -34,33 +32,45 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         spinner = createSpinner();
+        createPlayButton();
+        createValidateButton();
+    }
 
-        (findViewById(R.id.imageButton)).setOnClickListener(new View.OnClickListener() {
+    public ImageButton createPlayButton(){
+        ImageButton imageButton = (ImageButton)(findViewById(R.id.imageButton));
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                CanvasView canvasView = (CanvasView)findViewById(R.id.canvas);
+                CanvasView canvasView = (CanvasView) findViewById(R.id.canvas);
                 canvasView.clear();
 
                 try {
                     soundStrategy = new KMidiSoundStrategy(getApplicationContext());
                     soundStrategy.begin();
                     soundNotes = soundStrategy.getSoundNoteListAndPlay(Integer.valueOf(spinner.getSelectedItem().toString()));
-                } catch(TechnicalException e){
+                } catch (TechnicalException e) {
                     Toast.makeText(getApplicationContext(), R.string.technical_problem_message, Toast.LENGTH_SHORT).show();
                     Log.i("app", e.getMessage());
                 }
             }
         });
 
-        (findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
+        return imageButton;
+    }
+
+    public Button createValidateButton(){
+        Button button = (Button)(findViewById(R.id.button));
+
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CanvasView canvasView = (CanvasView)findViewById(R.id.canvas);
+                CanvasView canvasView = (CanvasView) findViewById(R.id.canvas);
                 graphicalNotes = canvasView.getGraphicalNoteList();
 
-                if(DEBUG){
-                    Log.i("app","s:" + soundNotes + " g:" + graphicalNotes);
+                if (DEBUG) {
+                    Log.i("app", "s:" + soundNotes + " g:" + graphicalNotes);
                 }
 
                 try {
@@ -78,6 +88,8 @@ public class MainActivity extends Activity {
                 }
             }
         });
+
+        return button;
     }
 
     public void controlSoundAndGraphical() throws UserException{
