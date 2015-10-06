@@ -1,7 +1,5 @@
 package com.arnotjevleesch.arnotes.matchStrategy;
 
-import android.content.Context;
-import com.arnotjevleesch.arnotes.exception.UserException;
 import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
 import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 
@@ -13,9 +11,8 @@ import java.util.Random;
 
 public class QuicksortMatchStrategy extends MatchSoundAndGraphical implements IMatchStrategy {
 
-	public QuicksortMatchStrategy(Context applicationContext, List<GraphicalNote> graphicalNotes,
-								  SoundNoteSet soundNotes) throws UserException {
-		super(applicationContext, soundNotes,graphicalNotes);
+	public QuicksortMatchStrategy(List<GraphicalNote> graphicalNotes, SoundNoteSet soundNotes) {
+		super(soundNotes, graphicalNotes);
 	}
 	
 	@Override

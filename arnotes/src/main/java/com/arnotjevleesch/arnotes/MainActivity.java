@@ -25,7 +25,8 @@ public class MainActivity extends Activity {
 
     private static final boolean DEBUG = true;
     private ISoundStrategy soundStrategy = null;
-    private SoundNoteSet soundNotes;
+    private SoundNoteSet soundNotes = null;
+    private List<GraphicalNote> graphicalNotes = null;
     private Spinner spinner = null;
 
     @Override
@@ -56,26 +57,33 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 CanvasView canvasView = (CanvasView)findViewById(R.id.canvas);
-                List<GraphicalNote> graphicalNotes = canvasView.getGraphicalNoteList();
+                graphicalNotes = canvasView.getGraphicalNoteList();
 
                 if(DEBUG){
                     Log.i("app","s:" + soundNotes + " g:" + graphicalNotes);
                 }
 
                 try {
-                    IMatchStrategy matchStrategy = new CompareMatchStrategy(getApplicationContext(), soundNotes, graphicalNotes);
-
-                    if(matchStrategy.isMatching()) {
-                        Toast.makeText(getApplicationContext(), R.string.match_message, Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getApplicationContext(), R.string.not_match_message, Toast.LENGTH_SHORT).show();
-                    }
-
+                    controlSoundAndGraphical();
                 } catch (UserException e) {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
+
+                IMatchStrategy matchStrategy = new CompareMatchStrategy(soundNotes, graphicalNotes);
+
+                if (matchStrategy.isMatching()) {
+                    Toast.makeText(getApplicationContext(), R.string.match_message, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.not_match_message, Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+
+    public void controlSoundAndGraphical() throws UserException{
+        if(soundNotes.size() != graphicalNotes.size()) {
+            throw new UserException(getApplicationContext().getString(R.string.notes_number_message));
+        }
     }
 
     public Spinner createSpinner() {

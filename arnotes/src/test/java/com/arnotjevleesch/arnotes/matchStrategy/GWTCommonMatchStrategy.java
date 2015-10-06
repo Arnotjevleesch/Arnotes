@@ -1,6 +1,5 @@
 package com.arnotjevleesch.arnotes.matchStrategy;
 
-import com.arnotjevleesch.arnotes.exception.UserException;
 import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
 import com.arnotjevleesch.arnotes.pojo.SoundNote;
 import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
@@ -23,14 +22,6 @@ public abstract class GWTCommonMatchStrategy {
         soundNotes.add(new SoundNote(BigDecimal.valueOf(15)));
         soundNotes.add(new SoundNote(BigDecimal.valueOf(5)));
         soundNotes.add(new SoundNote(BigDecimal.valueOf(25)));
-    }
-
-    public void givenSoundNotesList2(){
-        soundNotes = new SoundNoteSet();
-        soundNotes.add(new SoundNote(BigDecimal.valueOf(10)));
-        soundNotes.add(new SoundNote(BigDecimal.valueOf(25)));
-        soundNotes.add(new SoundNote(BigDecimal.valueOf(15)));
-        soundNotes.add(new SoundNote(BigDecimal.valueOf(20)));
     }
 
     public void givenGraphicalNotesList1(){
@@ -59,6 +50,6 @@ public abstract class GWTCommonMatchStrategy {
         Assert.assertFalse(matchStrategy.isMatching());
     }
 
-    public abstract void whenChooseMatchStrategy() throws UserException;
+    public abstract void whenChooseMatchStrategy();
 
 }

@@ -1,7 +1,5 @@
 package com.arnotjevleesch.arnotes.matchStrategy;
 
-import android.content.Context;
-import com.arnotjevleesch.arnotes.exception.UserException;
 import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
 import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 
@@ -13,9 +11,8 @@ import java.util.List;
 public class CompareMatchStrategy extends MatchSoundAndGraphical implements IMatchStrategy {
 
 
-	public CompareMatchStrategy(Context applicationContext, SoundNoteSet soundNotes, List<GraphicalNote> graphicalNotes)
-			throws UserException {
-		super(applicationContext, soundNotes,graphicalNotes);
+	public CompareMatchStrategy(SoundNoteSet soundNotes, List<GraphicalNote> graphicalNotes) {
+		super(soundNotes, graphicalNotes);
 	}
 
 	
