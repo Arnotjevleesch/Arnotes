@@ -1,5 +1,6 @@
 package com.arnotjevleesch.arnotes.matchStrategy;
 
+import com.arnotjevleesch.arnotes.exception.SizeGraphicalSoundCoherenceException;
 import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
 import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 
@@ -13,11 +14,20 @@ public class MatchSoundAndGraphical {
 	private SoundNoteSet soundNotes;
 	private List<GraphicalNote> graphicalNotes;
 
-	public MatchSoundAndGraphical(SoundNoteSet soundNotes, List<GraphicalNote> graphicalNotes) {
+	public MatchSoundAndGraphical(SoundNoteSet soundNotes, List<GraphicalNote> graphicalNotes)
+			throws SizeGraphicalSoundCoherenceException {
 		this.soundNotes = soundNotes;
 		this.graphicalNotes = graphicalNotes;
 
+		controlSoundAndGraphical();
+
         sortByX(this.graphicalNotes);
+	}
+
+	private void controlSoundAndGraphical() throws SizeGraphicalSoundCoherenceException {
+		if(soundNotes.size() != graphicalNotes.size()) {
+			throw new SizeGraphicalSoundCoherenceException();
+		}
 	}
 
     private void sortByX(List<GraphicalNote> graphicalNotes) {

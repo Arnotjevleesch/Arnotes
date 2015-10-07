@@ -1,5 +1,6 @@
 package com.arnotjevleesch.arnotes.matchStrategy;
 
+import com.arnotjevleesch.arnotes.exception.SizeGraphicalSoundCoherenceException;
 import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
 import com.arnotjevleesch.arnotes.pojo.SoundNoteSet;
 
@@ -11,7 +12,8 @@ import java.util.Random;
 
 public class QuicksortMatchStrategy extends MatchSoundAndGraphical implements IMatchStrategy {
 
-	public QuicksortMatchStrategy(List<GraphicalNote> graphicalNotes, SoundNoteSet soundNotes) {
+	public QuicksortMatchStrategy(List<GraphicalNote> graphicalNotes, SoundNoteSet soundNotes)
+			throws SizeGraphicalSoundCoherenceException {
 		super(soundNotes, graphicalNotes);
 	}
 	

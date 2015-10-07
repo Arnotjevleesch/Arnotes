@@ -7,8 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
+import com.arnotjevleesch.arnotes.exception.SizeGraphicalSoundCoherenceException;
 import com.arnotjevleesch.arnotes.exception.TechnicalException;
-import com.arnotjevleesch.arnotes.exception.UserException;
 import com.arnotjevleesch.arnotes.matchStrategy.CompareMatchStrategy;
 import com.arnotjevleesch.arnotes.matchStrategy.IMatchStrategy;
 import com.arnotjevleesch.arnotes.pojo.GraphicalNote;
@@ -73,13 +73,12 @@ public class MainActivity extends Activity {
                     Log.i("app", "s:" + soundNotes + " g:" + graphicalNotes);
                 }
 
+                IMatchStrategy matchStrategy = null;
                 try {
-                    controlSoundAndGraphical();
-                } catch (UserException e) {
-                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                    matchStrategy = new CompareMatchStrategy(soundNotes, graphicalNotes);
+                } catch (SizeGraphicalSoundCoherenceException e) {
+                    Toast.makeText(getApplicationContext(), R.string.notes_number_message, Toast.LENGTH_SHORT).show();
                 }
-
-                IMatchStrategy matchStrategy = new CompareMatchStrategy(soundNotes, graphicalNotes);
 
                 if (matchStrategy.isMatching()) {
                     Toast.makeText(getApplicationContext(), R.string.match_message, Toast.LENGTH_SHORT).show();
@@ -90,12 +89,6 @@ public class MainActivity extends Activity {
         });
 
         return button;
-    }
-
-    public void controlSoundAndGraphical() throws UserException{
-        if(soundNotes.size() != graphicalNotes.size()) {
-            throw new UserException(getApplicationContext().getString(R.string.notes_number_message));
-        }
     }
 
     public Spinner createSpinner() {
