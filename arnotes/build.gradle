@@ -51,11 +51,11 @@ android {
 dependencies {
     //compile 'jp.kshoji:javax-sound-midi:0.0.1:@aar'
     compile 'jp.kshoji:midi-driver:0.1.1:@aar'
-    testCompile 'junit:junit:4.12'
+    androidTestCompile 'junit:junit:4.12'
 }
 
 task addTest {
-    description "Registers the test folder in the .iml file so Java tooling works."
+    //Registers the test folder in the .iml file so Java tooling works.
     println 'addTest task'
     def src = ['src/test/java']
     def file = file("arnotes.iml") // Must match module file name
