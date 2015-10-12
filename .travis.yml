@@ -29,14 +29,6 @@ android:
     - sys-img-armeabi-v7a-android-22
 #    - sys-img-x86-android-17
 
-deploy:
-  provider: releases
-  api_key: "1015d26f8f6e8ebe266b3772d19af18c7bb72b07"
-  file: "apk_keystore.jks"
-  skip_cleanup: true
-  on:
-    tags: true
-
 env:
   global:
    # install timeout in minutes (2 minutes by default)
