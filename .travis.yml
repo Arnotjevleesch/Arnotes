@@ -50,7 +50,7 @@ deploy:
   provider: releases
   api_key:
     secure: 0MfVVz9ATpLY0XkEs2kxP7SuJhUi38NXv2TvPmOFlQlqpSt+urBw7usgQwpFO2/9rw8x2e69yFJVUckDWDxW/65V+YkXYuGZC+NTQ206RHF8ReeeCYSLSMlCqekcqlRI48iStTkCvjYRolDHEicqpKWA4GIBmDcK6gqFESFaSAxMaSLu0JEFNXo/6oG4bryefRiTbj1WAhZAeHoycb4ti86ZynyQvU2/cAIXPv9uovLfCx30q+JCibVzEGfvGk/ttXwMDdrmOxtwRAm/njHFMNYJfTttymI5dMX/GVkosg5S1mM28QtNbaBRTU1jqh5i85ZtRugb4hTsiVEZk56xy8sqaJ8TEdY9/ZgWB/h4ssL2cILmHR00VDYdVqFFmomI0tVNQ5XLJsayeCPZlBjEGpLgvGDXMmC9iimKiBG8FlhGQHKuNEEx/M0kL0lMIeA8fWoV+i3n5Ir5vtNFYxb7DSGTQg0uQqIY+XbRkVSCKPNXSVqGI6si23HAnaUQFxKvbZxK289eSficCChBdYYs8k+rcruWebuQ61m8TnqX6nugIuxBhhbvZ6xmeujlE0W1iJ4aCBgfjZf4m3CNCbCB10MZcB9gRjgX/LLjjPtgkbIxdxW3EzOIZbGU+e5pSsQJs6TmDwLZA0LYUVGPlyFuCvzCT0poCUOPRwww1gqMdXY=
-  file: arnotes/test_deploy.txt
+  file: test_deploy2.txt
   on:
     repo: Arnotjevleesch/Arnotes
     branch: master
