@@ -1,56 +1,24 @@
 language: android
 jdk:
-  - openjdk7
-#  - openjdk8
-#  - oraclejdk7
+- openjdk7
 sudo: false
-
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    # - platform-tools
-    # - tools
-
-    # The BuildTools version used by your project
-    - build-tools-22.0.1
-
-    # The SDK version used to compile your project
-    - android-22
-
-    # Additional components
-#    - extra-google-google_play_services
-#    - extra-google-m2repository
-#    - extra-android-m2repository
-#    - addon-google_apis-google-19
-
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-android-22
-#    - sys-img-x86-android-17
-
+  - build-tools-22.0.1
+  - android-22
+  - sys-img-armeabi-v7a-android-22
 env:
   global:
-   # install timeout in minutes (2 minutes by default)
-    - ADB_INSTALL_TIMEOUT=8
-
-# Emulator Management: Create, Start and Wait
-before_script:
-#  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-#  - emulator -avd test -no-skin -no-audio -no-window &
-#  - android-wait-for-emulator
-#  - adb shell input keyevent 82 &
-
-script:
-  #- android list target
-  #- ./gradlew test
-  #- ./gradlew connectedAndroidTest
-
+  - ADB_INSTALL_TIMEOUT=8
+before_script: 
+script: 
 deploy:
   provider: releases
+  user: Arnotjevleesch
+  password:
+      secure: EektyMLXRW54xy9348Epo+JAAXMb4x5w8fqXNfMy7UboKzkUNd78GfJQUTk67HtJLud3oo3wr8y6/6oM8gLYamQsV/LKi9QF03mM8dlfmEqL0qxeQ2K+63D8xT+NF3onzB/arzbEzz3vYa/jMFrA/yLxXo36u+IX3jAQsuDweDBFjHXXhxsFlQDjxwHpQed/DHrqgHmQUIwaqQoDzvkiE/cLGqCvuVW80o+V5Lh/bqZh1o5jQsDX33KZ2YWfCV5/AckeFp/L+1k5vM/4bo4F4iAv757DxCmPaZJvgqIH9DGJVem84zHHzvlRyLkilkBQKEhgoPhuQjOEV1PO2IG/c9GLuwxNPm3IXyAUQHm9d5PGq8AgoXvc1oaWOXG6SHscZp4Adyrt+BGgCYBoLjSmwXGiAVfNAprqZXw2714ZGSkokHnbua4+o1zNqAqcAi55OHpeEE65EHwcYLFwrwE0EOp7cAWeSHU0CGN4Gj0wvxQfoLopuGkB78t70yXykKB/wiTfaL9HiouFJOutUAmb2QmoNMX0CLuUQD7v/zA5VElmO0m/XmQTpnTa8fze4mEoP5RBVmX019yzWDE0O+fPM/+c6bAl49sgb0qSq72O3rCWF5ah7Dbk1UTC0e5V9yLc2q1Ah6AwO+cREv7JA8Ng92riy/J+r7OM589olQiGyV0=
   file: test_deploy2.txt
+  skip_cleanup: true
   on:
     repo: Arnotjevleesch/Arnotes
     branch: master
-  api-key:
-    secure: nxFroRqQGSWyoZofNTDslJNUF5l+2vNL8JqO9XeuIpudh3gSDNknpdExl7y7HXgj3MSWfUE28l0CzcszDPM1ukfohiMS6A91yJgVUqX2Pr0xFJc4fTdKZ1yZIKTPIXmHj9fR/SUHC//T0m+COzTyQuzGI05j6D8iNkDV7ecGhu3PsA2m9/C3TKIs/HnBPINRh9jtFv4pCrGJuOSfblMKsEbygF6GRMz7oe1qnUr0Sn49dCfvLTup4hpKQ+rW6g6oemUEXlm62fscRz3wH6a3t+oXy1+F90wQIJLDU8uJDKnRu6bs/qvrRaDwwqWK9S367Oh1ZI8G0SlqY2QZqihS7JfNESYTnnnGj0bmuiTAnos5XPM69GlqLbtLVH6BrchO0mNdpkVeBRzMP4VbhX9Kg/oAJ/MmI6ei197oZrpqMzeamNYUW99PFbNl95TFI/mH4jcEFmYDxtULzkeDD8TFyxQsvs4YlwBDZ+kmTh2qNyzekmGmrfQJs4HDDG3WRkzOCElDkKfZVAVFN45e1od8wIHFojmazxyl+ynUa/z1DIAz0gr+aiFhKtyCMZ4DXQZjf+dt51RI6Gh25cvQQ0ofTit8r1ARChynSmIFYfM2Iy/4wOP5rXt6qPdZeE/C3chR+vV4fDHC4p3RzKAovkSuIK/qDYD3txvdJX40p04InL4=
