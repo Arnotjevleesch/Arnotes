@@ -53,3 +53,4 @@ deploy:
   file: test_deploy2.txt
   on:
     repo: Arnotjevleesch/Arnotes
+    branch: master
