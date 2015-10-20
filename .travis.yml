@@ -51,6 +51,6 @@ deploy:
   api_key:
     secure: eO/WodbgWCZIsJOG4g7MmSj1QoTDLM0LqEzzJZv4kV9RH82ZL73+9xYn2yFlwkMU5X3He2c1wdeh5LplOpSlBy7eVJuClB6vjBIcDb5a+y/6HNJ9Ix/zh+FHHMMpK0iB+JpoCtebw6fdin49rrmJSS1tHN91iR/dgjgDiaPb/MioMktn0UktRBsD+GXY0GVT+SIdNPoWfTdRi2f/BZu9YZYGTL7nnYMbL35ImYX9krxQ6+itVJHuR67sC/8pDQ6Q6r/ngc0f0/D/x4p6dSZLuX/xU8WkwioO0zkU0pIilNrYqo7TcQ/9kECHFf/fDnqWfN4BcBvUMCjMBQKqCoN+OAwPntOrgRs8NniWghb9oYx+Z2gTIxtDqZILRfrvt9DEejefcZuLNxkwD7dGFKvle0AipfTp1ubjsPeE+3iBHMkKTMPmiAgeMtwPspJlMcLJZOsL9ua+Le4BaYVDps0+rP7bO58IGzghWD0mHAoo+QmGEsTKOADJkXuk+2PVOWmiCGU3dtspDtqRdXWibJOsjbX/d0UtcHYit8gtwni5Ciir9qk151UHwHyJhbWcPE/8kgnVC4vkDvJ/Un3pzye4qqkSFr0rpUVjtLuZlLeXbmD89rkF+FlVxNbOv6VFfC0PNp4S1P940Vmeht4FG/SM1k037rvpjAlRg3/JW3fDlwE=
   file: test_deploy3.txt
+  skip_cleanup: true
   on:
-    repo: Arnotjevleesch/Arnotes
-    branch: master
+    tags: true
