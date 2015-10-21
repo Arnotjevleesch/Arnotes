@@ -45,7 +45,10 @@ script:
   #- android list target
   #- ./gradlew test
   #- ./gradlew connectedAndroidTest
-  - ./gradlew assembleRelease
+  - ./gradlew assemble
+
+after_success:
+- mv arnotes/build/outputs/apk/arnotes-release.apk arnotes-release.apk
 
 deploy:
   provider: releases
