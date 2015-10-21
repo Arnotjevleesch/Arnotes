@@ -48,7 +48,8 @@ script:
   - ./gradlew assemble
 
 after_success:
-- mv arnotes/build/outputs/apk/arnotes-release.apk arnotes-release.apk
+  #- mv arnotes/build/outputs/apk/arnotes-release.apk arnotes-release.apk
+  - ls arnotes/build/outputs/apk
 
 deploy:
   provider: releases
