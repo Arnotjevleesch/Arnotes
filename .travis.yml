@@ -49,6 +49,8 @@ script:
 
 after_success:
   #- mv arnotes/build/outputs/apk/arnotes-release.apk arnotes-release.apk
+  - ls arnotes/build
+  - ls arnotes/build/apk
   - ls arnotes/build/outputs/apk
 
 deploy:
