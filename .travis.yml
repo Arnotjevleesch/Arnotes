@@ -45,6 +45,7 @@ script:
   #- android list target
   #- ./gradlew test
   #- ./gradlew connectedAndroidTest
+  - ./gradlew assembleRelease
 
 deploy:
   provider: releases
